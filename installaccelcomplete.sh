@@ -87,11 +87,7 @@ cpack -G DEB
 apt install ./accel-ppp.deb
 
 systemctl enable accel-ppp
-cp /etc/accel-ppp.conf.dist  /etc/accel-ppp.conf
-
 systemctl restart accel-ppp
-
-
 
 cd /tmp;
 wget http://www.ixcsoft.com.br/atualizacoes/dictionary.accel;
@@ -130,7 +126,7 @@ function confaccel {
 
 		GATEWAYPOOL=$(whiptail --title "Módulo - ip-pool" --inputbox "Por favor, Digite o gateway da pool..." --fb 10 60 3>&1 1>&2 2>&3);
 
-    		POOLCLIENTES=$(whiptail --title "Módulo - ip-pool" --inputbox "Por favor, Digite o bloco para entrega aos clientes (ex: 100.64.0.0/24)" --fb 10 60 3>&1 1>&2 2>&3);
+    POOLCLIENTES=$(whiptail --title "Módulo - ip-pool" --inputbox "Por favor, Digite o bloco para entrega aos clientes (ex: 100.64.0.0/24)" --fb 10 60 3>&1 1>&2 2>&3);
 
 		POOLAVISODEATRASO=$(whiptail --title "Módulo - ip-pool" --inputbox "Por favor, Digite o bloco para aviso de atraso... (ex: 172.20.1.0/24)" --fb 10 60 3>&1 1>&2 2>&3);
 
@@ -164,7 +160,7 @@ function confaccel {
 
 		sed -i 's/gw-ip-address=GATEWAYPOOL/gw-ip-address='$GATEWAYPOOL'/' /etc/accel-ppp.conf;
 
-    sed -i 's:POOLCLIENTES,name='$POOLCLIENTE':'$POOLAVISODEATRASO',name='$POOLCLIENTE':' /etc/accel-ppp.conf;
+    		sed -i 's:POOLCLIENTES,name='$POOLCLIENTE':'$POOLCLIENTE',name='$POOLCLIENTE':' /etc/accel-ppp.conf;
 
 		sed -i 's:POOLAVISODEATRASO,name=pool_aviso_atraso:'$POOLAVISODEATRASO',name=pool_aviso_atraso:' /etc/accel-ppp.conf;
 
