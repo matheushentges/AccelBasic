@@ -130,7 +130,7 @@ function confaccel {
 
 		GATEWAYPOOL=$(whiptail --title "Módulo - ip-pool" --inputbox "Por favor, Digite o gateway da pool..." --fb 10 60 3>&1 1>&2 2>&3);
 
-    POOLCLIENTES=$(whiptail --title "Módulo - ip-pool" --inputbox "Por favor, Digite o bloco para entrega aos clientes (ex: 100.64.0.0/24)" --fb 10 60 3>&1 1>&2 2>&3);
+    		POOLCLIENTES=$(whiptail --title "Módulo - ip-pool" --inputbox "Por favor, Digite o bloco para entrega aos clientes (ex: 100.64.0.0/24)" --fb 10 60 3>&1 1>&2 2>&3);
 
 		POOLAVISODEATRASO=$(whiptail --title "Módulo - ip-pool" --inputbox "Por favor, Digite o bloco para aviso de atraso... (ex: 172.20.1.0/24)" --fb 10 60 3>&1 1>&2 2>&3);
 
